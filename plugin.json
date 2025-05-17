@@ -1,6 +1,6 @@
 {
   "id": "nodebb-plugin-anon-linked-user",
-  "name": "Anonymous Linked User",
+"name": "nodebb-plugin-anon-linked-user",
   "description": "Allows users to post anonymously via a linked user identity",
   "url": "https://github.com/USERNAME/nodebb-plugin-anon-linked-user",
   "version": "0.1.0",
