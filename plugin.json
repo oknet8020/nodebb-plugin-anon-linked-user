@@ -1,0 +1,23 @@
+{
+  "id": "nodebb-plugin-anon-linked-user",
+  "name": "Anonymous Linked User",
+  "description": "Allows users to post anonymously via a linked user identity",
+  "url": "https://github.com/USERNAME/nodebb-plugin-anon-linked-user",
+  "version": "0.1.0",
+  "main": "plugin.js",
+  "scripts": [],
+  "hooks": [
+    {
+      "hook": "static:app.load",
+      "method": "init"
+    },
+    {
+      "hook": "filter:post.get", 
+      "method": "filterPostGet"
+    }
+  ],
+  "staticDirs": {
+    "static": "static"
+  },
+  "templates": "static/templates"
+}
