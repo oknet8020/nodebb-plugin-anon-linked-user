@@ -8,7 +8,7 @@ const plugin = {};
 plugin.init = async function (params) {
   const { router, middleware } = params;
 
-router.get('/user/:userslug/anon-settings', middleware.buildHeader, (req, res) => {
+router.get('/user/:userslug/linked-anon-settings', middleware.buildHeader, (req, res) => {
   res.render('anon-activate');
 });
 
