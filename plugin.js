@@ -8,7 +8,22 @@ const plugin = {};
 plugin.init = async function (params) {
   const { router, middleware } = params;
 
-  // בעתיד נרשום כאן ניתובים להגדרות
+router.get('/user/:userslug/anon-activate', middleware.buildHeader, (req, res) => {
+  res.render('anon-identity/anon-activate');
+});
+
+router.post('/api/user/anon-activate', async (req, res) => {
+  if (!req.uid) {
+    return res.status(403).json({ error: 'לא מחובר' });
+  }
+  try {
+    const anonUid = await plugin.createAnonIdentity(req.uid);
+    res.json({ status: 'ok', message: 'נוצרה זהות אנונימית', anonUid });
+  } catch (err) {
+    console.error('[anon-identity] יצירת זהות אנונימית נכשלה:', err);
+    res.status(500).json({ error: 'שגיאה בשרת' });
+  }
+});
 };
 
 plugin.filterPostGet = async function (hookData) {
