@@ -1,0 +1,10 @@
+{
+  "name": "nodebb-plugin-anon-linked-user",
+  "version": "0.0.1",
+  "description": "Anonymous linked user plugin for NodeBB",
+  "main": "plugin.js",
+  "scripts": {},
+  "keywords": ["nodebb", "plugin", "anonymous", "user"],
+  "author": "",
+  "license": "MIT"
+}
