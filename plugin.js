@@ -16,4 +16,27 @@ plugin.filterPostGet = async function (hookData) {
   return hookData;
 };
 
+plugin.createAnonIdentity = async function (uid) {
+  const existing = await db.getObjectField(`user:${uid}`, 'anon:uid');
+  if (existing) {
+    return existing; // כבר יש זהות אנונימית
+  }
+
+  const mainUser = await User.getUserFields(uid, ['username', 'email']);
+  const anonUsername = `anon_${uid}_${Date.now()}`;
+
+  // ניצור את המשתמש האנונימי
+  const anonUid = await User.create({
+    username: anonUsername,
+    email: `anon-${uid}@example.com`, // צריך לוודא שאין התנגשות
+    password: require('crypto').randomBytes(16).toString('hex'),
+  });
+
+  // נרשום את הקשר בין המשתמשים
+  await db.setObjectField(`user:${uid}`, 'anon:uid', anonUid);
+  await db.setObjectField(`user:${anonUid}`, 'anon:mainUid', uid);
+
+  return anonUid;
+};
+
 module.exports = plugin;
