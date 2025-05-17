@@ -8,8 +8,8 @@ const plugin = {};
 plugin.init = async function (params) {
   const { router, middleware } = params;
 
-router.get('/user/:userslug/anon-activate', middleware.buildHeader, (req, res) => {
-  res.render('anon-identity/anon-activate');
+router.get('/user/:userslug/anon-settings', middleware.buildHeader, (req, res) => {
+  res.render('anon-settings');
 });
 
 router.post('/api/user/anon-activate', async (req, res) => {
