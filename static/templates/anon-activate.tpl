@@ -1,4 +1,4 @@
-<div class="anon-identity-settings">
+<div class="anon-linked-user-settings">
   <h2>הפעלת זהות אנונימית</h2>
   <button class="btn btn-primary" id="activate-anon">הפעל</button>
   <div id="anon-result"></div>
