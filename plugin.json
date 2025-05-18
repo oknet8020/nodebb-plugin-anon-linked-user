@@ -22,3 +22,6 @@
   },
   "templates": "static/templates"
 }
+"scripts": [
+  "static/lib/anon-toggle.js"
+]
