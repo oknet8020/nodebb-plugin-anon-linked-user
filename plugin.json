@@ -5,6 +5,7 @@
   "url": "https://github.com/USERNAME/nodebb-plugin-anon-linked-user",
   "version": "0.1.0",
   "main": "plugin.js",
+  "library": "./library.js",
   "scripts": [],
   "hooks": [
     {
